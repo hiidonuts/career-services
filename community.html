@@ -763,7 +763,7 @@
       async function loadGroupChat(groupId) {
         currentGroupId = groupId;
       
-        const response = await fetch('groups.json');
+        const response = await fetch('assets/groups.json');
         const data = await response.json();
         const group = data.groups.find(g => g.id === groupId);
       
