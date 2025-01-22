@@ -32,3 +32,14 @@ This project aims to provide career-related services for university students or 
 ## Contact
 
 Venice - [@venicevkx](https://www.instagram.com/venicevkx/) - venicevkx@gmail.com
+
+Project Link: [https://github.com/hiidonuts/career-services]([https://github.com/your_username/repo_name](https://github.com/hiidonuts/career-services)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+tbw
