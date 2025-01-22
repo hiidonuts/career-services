@@ -1,0 +1,947 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Career Services | Community</title>
+    <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            background-color: white;
+        }
+       
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header, nav
+        {
+          text-align: center;
+          background: transparent;
+          color: white;
+          padding: 1rem 0;
+        }
+
+        nav 
+        {
+          position: absolute;
+          top: 0;
+          height: 1px;
+          left: 0;
+          width: 100%;
+          background:white;
+          z-index: 100;
+          transition: transform 0.3s ease;
+        }
+
+        nav ul 
+        {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        border-spacing: 0;
+        margin-top: 65px;
+        }
+
+        nav ul li { margin: 0 30px; }
+
+        nav ul li a 
+        {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        }
+
+        nav ul li a:hover
+        {
+        text-decoration: underline;
+        color: #373833;
+        }
+
+        nav ul li a.active {
+            text-decoration: underline;
+            color: #373833;
+        }
+
+        .user-icon {
+          display: inline-block;
+          cursor: pointer;
+          margin-left: 50px;
+          margin-top: 4px;
+          font-size: 1.4rem; /* Adjust the icon size */
+        }
+
+        .user-icon i {
+          color: #333; /* Icon color */
+          transition: color 0.3s ease;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 50px 20px;
+          background-color: #f4f4f4;
+          background-image: url('/img/community-bg.jpg'); /* Replace with your image path */
+          background-size: cover; /* Ensures the image covers the entire section */
+          background-attachment: fixed; /* Optional: makes the background image fixed while scrolling */
+          background-position: center;
+          margin-top: 500px;
+          height: 300px;
+        }
+
+        .hero h1 
+        {
+          margin-top: -370px;
+          font-size: 5.5rem;
+          margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #555;
+        }
+
+        .section {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        .section h2 {
+            font-size: 2.3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color:#c9ada7;
+            border: 1px solid #e4d7e3;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #534444f1;
+            color: rgb(84, 66, 66);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #887474;
+        }
+
+        /* Q&A Section Styling */
+        .qa-section {
+            background: #f9f9f9;
+            padding: 40px 20px;
+        }
+
+        .qa-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .qa-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .qa-section input, .qa-section select, .qa-section textarea {
+            padding: 10px;
+            border: 1px solid #252523;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .qa-section button {
+            padding: 10px 20px;
+            background: #5e5151;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .qa-section button:hover {
+            background: #c8b8c8;
+        }
+
+        .qa-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .qa-category {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .qa-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .qa-category h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .question-list {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .question-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .question-item p {
+            color: #555;
+        }
+
+        .reply-btn {
+            margin-top: 10px;
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reply-btn:hover {
+            background: #218838;
+        }
+
+        .vote-btn {
+            background: #a89898;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .vote-btn:hover {
+            background: #a89898;
+        }
+
+        .vote-count {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+  /* Overall Discussion Section Styling */
+  .discussion-section {
+    padding: 20px;
+    background-color: #ca4be4; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .discussion-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #544848;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  /* Individual Discussion Item */
+  .discussion-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgb(195, 179, 179);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .discussion-item p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .discussion-item p strong {
+    color: #333;
+  }
+
+  /* Replies Section */
+  .replies {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f4f8;
+    border-radius: 8px;
+    border-left: 4px solid #c8baba;
+  }
+
+  .replies p {
+    margin: 10px 0;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .replies p strong {
+    color: #5d5451;
+  }
+
+  /* Button Styling */
+  .back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #8a1c7b;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .back-btn:hover {
+    background: #e2a7ee;
+    transform: translateY(-3px);
+  }
+  /* Group Chat Section */
+/* User Groups Section */
+#groups {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#groups h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Group Chat Content */
+#group-chat-content {
+  display: none;
+  padding: 20px;
+  background: #c3b1b1;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+#chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5e5151;
+  color: rgb(236, 224, 224);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chat-box {
+  margin-top: 20px;
+  height: 300px;
+  overflow-y: scroll;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.chat-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+
+.chat-message .user {
+  font-weight: bold;
+  color: #895e82;
+}
+
+.chat-input {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: #483f3f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar { width: 8px; }
+
+::-webkit-scrollbar-track { background-color: #f1f1f1; }
+
+::-webkit-scrollbar-thumb 
+{
+    background-color: #705f5f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { background-color: #555; }
+
+</style>
+
+  </head>
+
+  <body>
+
+    <div id="scroll-indicator"></div>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listing.html">Listings</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="community.html">Community</a></li>
+          <div id="userIcon" class="user-icon hidden" onclick="logout()">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">COMMUNITY<br>FORUMS</h1>
+      <p class="description">Our forum is a space to exchange ideas, ask questions, and find support 
+        from a <br>vibrant network of members. Whether you're seeking advice, inspiration, or simply <br>looking 
+        to connect, the community is here to help you grow and succeed.</p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section" id="forums">
+      <h2>Discussion Forums</h2>
+      <div class="cards" id="forum-list" style="display: flex; flex-wrap: wrap;">
+        <div class="card">
+          <h3>Best Tips for Remote Work</h3>
+          <p>Explore strategies and advice for optimizing your remote work experience.</p>
+          <button class="btn" onclick="loadThread('remote-work')">View Thread</button>
+        </div>
+        <div class="card">
+          <h3>Salary Negotiation Experiences</h3>
+          <p>Share and learn from others' experiences in negotiating better pay.</p>
+          <button class="btn" onclick="loadThread('salary-negotiation')">View Thread</button>
+        </div>
+        <div class="card">
+          <h3>Career Growth Opportunities</h3>
+          <p>Discuss ways to identify and pursue growth opportunities in your field.</p>
+          <button class="btn" onclick="loadThread('career-growth')">View Thread</button>
+        </div>
+      </div>
+      <div id="thread-content" style="display: none; padding: 20px;"></div>
+    </section>
+
+    <script>
+      let currentThreadId;
+      const user = "You";  // Simulating a logged-in user for demo purposes
+    
+      async function loadThread(threadId) {
+        currentThreadId = threadId;
+    
+        const response = await fetch('threads.json');
+        const data = await response.json();
+        const thread = data.threads.find(t => t.id === threadId);
+    
+        if (thread) {
+          const threadContent = document.getElementById('thread-content');
+          let discussionHTML = '';
+    
+          // Iterate through the discussion and render posts
+          thread.discussion.forEach((d, index) => {
+            discussionHTML += `
+              <div class="discussion-item" style="
+                margin-bottom: 20px;
+                padding: 20px;
+                border: 1px solid #e0e0e0;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p style="font-size: 1rem; font-weight: bold;">${d.question.user}:</p>
+                <p style="margin-bottom: 10px; color: #333;">${d.question.text}</p>
+                <div style="
+                  margin-top: 10px;
+                  padding-left: 20px;
+                  border-left: 3px solid #a89898;" id="replies-${index}">
+                  ${d.replies
+                    .map(
+                      reply => `
+                      <p style="color: #555;" id="reply-${reply.id}">
+                        <strong style="color: #5e5151;">${reply.user}:</strong> ${reply.text}
+                        ${reply.user === user ? `
+                          <button onclick="deleteReply(${reply.id}, ${index})" style="
+                            margin-left: 10px;
+                            padding: 5px;
+                            background: #dc3545;
+                            color: #fff;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;">Delete</button>
+                        ` : ''}
+                      </p>`
+                    )
+                    .join('')}
+                </div>
+                <button onclick="showReplyBox(${index})" style="
+                  margin-top: 10px;
+                  padding: 10px 15px;
+                  background: #5e5151;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 0.9rem;">Reply</button>
+                <div id="reply-box-${index}" style="display: none; margin-top: 10px;">
+                  <textarea id="reply-input-${index}" style="
+                    width: 100%;
+                    height: 60px;
+                    margin-bottom: 10px;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    resize: none;" placeholder="Type your reply here..."></textarea>
+                  <button onclick="postReply(${index})" style="
+                    padding: 10px 15px;
+                    background: #28a745;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 0.9rem;">Post Reply</button>
+                </div>
+              </div>`;
+          });
+    
+          threadContent.innerHTML = `
+            <div style="
+              padding: 20px;
+              background: #f9f9f9;
+              border: 1px solid #ddd;
+              border-radius: 10px;
+              margin-bottom: 30px;">
+              <h2 style="font-size: 1.8rem; color: #333;">${thread.title}</h2>
+              <p style="color: #555;">${thread.content}</p>
+            </div>
+            <h3 style="color: #5e5151;">Discussion</h3>
+            ${discussionHTML}
+            <textarea id="chat-input" style="
+                width: 100%;
+                height: 60px;
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                resize: none;" placeholder="Type your question here..."></textarea>
+              <button onclick="postMessage()" style="
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background: #5e5151;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;">Post</button>
+            </div>
+            <a href="#" class="back-btn" onclick="goBack()" style="
+              display: inline-block;
+              margin-top: 20px;
+              padding: 10px 20px;
+              background: #a89898;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 5px;
+              font-size: 1rem;">Back to Forums</a>`;
+          threadContent.style.display = 'block';
+          document.getElementById('forum-list').style.display = 'none';
+        }
+      }
+    
+      function goBack() {
+        document.getElementById('forum-list').style.display = 'flex';
+        document.getElementById('thread-content').style.display = 'none';
+      }
+    
+      function showReplyBox(index) {
+        document.getElementById(`reply-box-${index}`).style.display = 'block';
+      }
+    
+      function postReply(index) {
+        const replyInput = document.getElementById(`reply-input-${index}`);
+        const replyText = replyInput.value.trim();
+    
+        if (replyText) {
+          const repliesContainer = document.getElementById(`replies-${index}`);
+          const newReplyId = Date.now(); // Unique ID for the new reply
+          repliesContainer.innerHTML += `
+            <p style="margin-top: 15px; color: #555;" id="reply-${newReplyId}">
+              <strong style="color: #5e5151;">You:</strong> ${replyText}
+              <button onclick="deleteReply(${newReplyId}, ${index})" style="
+                margin-left: 10px;
+                padding: 5px;
+                background: #dc3545;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;">Delete</button>
+            </p>`;
+          replyInput.value = '';
+          document.getElementById(`reply-box-${index}`).style.display = 'none';
+        }
+      }
+    
+      function postMessage() {
+        const chatInput = document.getElementById('chat-input');
+        const message = chatInput.value.trim();
+    
+        if (message) {
+          const threadContent = document.getElementById('thread-content');
+          const newPostId = Date.now(); // Unique ID for the new post
+    
+          // Add new post with Reply button, and Delete button
+          const newPostHTML = `
+            <div class="discussion-item" style="
+              margin-bottom: 20px;
+              padding: 20px;
+              border: 1px solid #e0e0e0;
+              border-radius: 10px;">
+              <p style="font-size: 1rem; font-weight: bold;">You:</p>
+              <p style="color: #333;">${message}</p>
+              <button onclick="showReplyBox(${newPostId})" style="
+                margin-top: 10px;
+                padding: 10px 15px;
+                background: #a89898;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;">Reply</button>
+              <div id="reply-box-${newPostId}" style="display: none; margin-top: 10px;">
+                <textarea id="reply-input-${newPostId}" style="
+                  width: 100%;
+                  height: 60px;
+                  margin-bottom: 10px;
+                  padding: 10px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  resize: none;" placeholder="Type your reply here..."></textarea>
+                <button onclick="postReply(${newPostId})" style="
+                  padding: 10px 15px;
+                  background: #28a745;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 0.9rem;">Post Reply</button>
+              </div>
+            </div>`;
+    
+          threadContent.innerHTML += newPostHTML;
+          chatInput.value = '';
+        }
+      }
+    
+      // Delete the reply
+      function deleteReply(replyId, postIndex) {
+        const reply = document.getElementById(`reply-${replyId}`);
+        if (reply) {
+          reply.remove();
+        }
+      }
+    </script>
+
+    <script>
+      // Place this script on every page except the homepage
+      if (!localStorage.getItem("loggedIn")) {
+          alert("You must log in to access this page!");
+          location.href = "index.html"; // Redirect to homepage
+      }
+
+      let currentGroupId;
+
+      // Function to load the group chat based on the group ID
+      async function loadGroupChat(groupId) {
+        currentGroupId = groupId;
+      
+        const response = await fetch('groups.json');
+        const data = await response.json();
+        const group = data.groups.find(g => g.id === groupId);
+      
+        if (group) {
+          const groupChatContent = document.getElementById('group-chat-content');
+          const groupName = document.getElementById('group-name');
+          const chatMessages = document.getElementById('chat-messages');
+      
+          // Display the group name
+          groupName.textContent = group.name;
+      
+          // Load previous chat messages
+          let chatHTML = '';
+          group.chat.forEach(message => {
+            chatHTML += `
+              <div class="chat-message">
+                <p class="user">${message.user}:</p>
+                <p>${message.text}</p>
+              </div>
+            `;
+          });
+      
+          chatMessages.innerHTML = chatHTML;
+          groupChatContent.style.display = 'block';
+          document.getElementById('groups').style.display = 'none';
+        }
+      }
+      
+      // Function to go back to the groups list
+      function goBackToGroups() {
+        document.getElementById('groups').style.display = 'flex';
+        document.getElementById('group-chat-content').style.display = 'none';
+      }
+      
+      // Function to post a new message in the group chat
+      function postGroupMessage() {
+        const chatInput = document.getElementById('chat-input');
+        const messageText = chatInput.value.trim();
+      
+        if (messageText) {
+          const chatMessages = document.getElementById('chat-messages');
+      
+          chatMessages.innerHTML += `
+            <div class="chat-message">
+              <p class="user">You:</p>
+              <p>${messageText}</p>
+            </div>
+          `;
+      
+          chatInput.value = '';
+        }
+      }
+      </script>
+
+<section class="section" id="groups">
+  <h2>User Groups</h2>
+  <div class="cards"id="group-list" style="display: flex; flex-wrap: wrap;">
+    <div class="card">
+      <h3>Tech Enthusiasts</h3>
+      <p>Connect with like-minded individuals in the tech industry.</p>
+      <button class="btn" onclick="loadGroupChat('tech-enthusiasts')">Join Group</button>
+    </div>
+    <div class="card">
+      <h3>Women in Leadership</h3>
+      <p>Support and empower women leaders in various sectors.</p>
+      <button class="btn" onclick="loadGroupChat('women-in-leadership')">Join Group</button>
+    </div>
+    <div class="card">
+      <h3>New Graduates</h3>
+      <p>Navigate the early stages of your career with this supportive group.</p>
+      <button class="btn" onclick="loadGroupChat('new-graduates')">Join Group</button>
+    </div>
+  </div>
+</section>
+
+<div id="group-chat-content" style="display: none;">
+  <div id="chat-header">
+    <h3 id="group-name"></h3>
+    <button class="btn" onclick="goBackToGroups()">Back to Groups</button>
+  </div>
+  <div id="chat-messages" class="chat-box"></div>
+  <textarea id="chat-input" class="chat-input" placeholder="Type your message..."></textarea>
+  <button class="btn" onclick="postGroupMessage()">Send</button>
+</div>
+
+
+    <!-- Q&A Section -->
+    <section class="qa-section" id="qa">
+      <h2>Q&A Section</h2>
+      <form>
+        <label for="company">Tag a Company:</label>
+        <input type="text" id="company" name="company" placeholder="Enter company name...">
+
+        <label for="question">Your Question:</label>
+        <textarea id="question" name="question" rows="4" placeholder="Type your question here..."></textarea>
+
+        <button type="submit">Submit Question</button>
+      </form>
+
+    
+      <h2>All Questions</h2>
+      <div class="question-list">
+        <div class="question-item">
+          <h4>How do I ask for a raise at Company X?</h4>
+          <p>Asked by: Jane Doe</p>
+          <button class="vote-btn">👍</button><span class="vote-count">12</span>
+          <button class="vote-btn">👎</button>
+          <button class="reply-btn" onclick="toggleReplyForm(this)">Reply</button>
+
+          <div class="reply-form" style="display:none; margin-top: 10px;">
+            <textarea placeholder="Type your reply here..." rows="3" style="width:100%;"></textarea>
+            <button type="button" style="margin-top: 10px; background: #5e5151; color: white; padding: 10px; border: none; border-radius: 5px;">Submit Reply</button>
+          </div>
+
+          <div class="replies" style="margin-top: 20px;">
+            <div class="reply-item" style="border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px;">
+              <p><strong>John Smith:</strong> You can prepare by gathering market data and showing your achievements.</p>
+              <button class="vote-btn">👍</button><span class="vote-count">8</span>
+              <button class="vote-btn">👎</button>
+            </div>
+            <div class="reply-item" style="border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px;">
+              <p><strong>Mary Lee:</strong> Timing is crucial. Make sure it aligns with the company's review periods.</p>
+              <button class="vote-btn">👍</button><span class="vote-count">5</span>
+              <button class="vote-btn">👎</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <h4>What are the best ways to achieve work-life balance?</h4>
+          <p>Asked by: Alex Johnson</p>
+          <button class="vote-btn">👍</button><span class="vote-count">10</span>
+          <button class="vote-btn">👎</button>
+          <button class="reply-btn" onclick="toggleReplyForm(this)">Reply</button>
+
+          <div class="reply-form" style="display:none; margin-top: 10px;">
+            <textarea placeholder="Type your reply here..." rows="3" style="width:100%;"></textarea>
+            <button type="button" style="margin-top: 10px; background: #5e5151; color: white; padding: 10px; border: none; border-radius: 5px;">Submit Reply</button>
+          </div>
+
+          <div class="replies" style="margin-top: 20px;">
+            <div class="reply-item" style="border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px;">
+              <p><strong>Susan Green:</strong> Set clear boundaries and prioritize self-care.</p>
+              <button class="vote-btn">👍</button><span class="vote-count">15</span>
+              <button class="vote-btn">👎</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const navLinks = document.querySelectorAll('nav ul li a');
+    
+      navLinks.forEach(link => {
+          // Check if the link's href matches the current page's URL
+          if (window.location.href.includes(link.href)) {
+              link.classList.add('active'); // Add 'active' class if the link is on the current page
+          }
+      });
+      
+      function toggleReplyForm(button) {
+        const replyForm = button.nextElementSibling;
+        if (replyForm.style.display === "none") {
+          replyForm.style.display = "block";
+        } else {
+          replyForm.style.display = "none";
+        }
+      }
+
+      function logout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("rememberMe");
+        alert("Career Services: You have been logged out!");
+        document.getElementById("userIcon").classList.add("hidden");
+        location.href = "index.html"; // Or login page
+      }
+    </script>
+
+  </body>
+</html>

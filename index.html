@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Career Services | Homepage</title>
+      <link rel="icon" href="/img/logo.png" type="image/x-icon">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/codes/homepage.css">
+  </head>
+  
+  <body>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listing.html">Listings</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="community.html">Community</a></li>
+          <div id="userIcon" class="user-icon hidden" onclick="logout()">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </ul>
+      </nav>
+
+      <section id="homepage">
+        <h1>CAREER<br>SERVICES</h1>
+        <p>Welcome to Career Services, where we help you take the next step toward<br>
+          a successful future. Our Career Services platform is designed to empower<br>
+          students and professionals with the tools, guidance, and resources they<br>
+          need to achieve their career goals. 
+        </p>
+        <button id="learnMoreBtn"><a href="">Learn More</a></button>
+      </section>
+
+      <div id="loginPanel" class="hidden">
+        <div class="login-container">
+          <h2>Login</h2>
+          <form id="loginForm">
+            <input type="email" id="username" placeholder="example@gmail.com" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="options">
+              <label>
+                <input type="checkbox" id="rememberMe">
+                Remember Me
+              </label>
+              <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+          </form>
+        </div>
+      </div>
+      
+      <div id="registerPanel" class="hidden">
+        <div class="register-container">
+          <h2>Register</h2>
+          <form id="registerForm">
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="password" id="regPassword" placeholder="Password" required>
+            <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Background Overlay -->
+      <div id="overlay" class="hidden"></div>      
+
+      <script>
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        navLinks.forEach(link => 
+        {
+            if (window.location.href.includes(link.href)) 
+            {
+                link.classList.add('active');
+            }
+        });
+
+        const registerLink = document.getElementById("registerLink");
+        const loginLink = document.getElementById("loginLink");
+        const forgotPassword = document.getElementById("forgotPassword");
+
+        const learnMoreBtn = document.getElementById("learnMoreBtn");
+        const loginPanel = document.getElementById("loginPanel");
+        const overlay = document.getElementById("overlay");
+        const nav = document.querySelector('nav');
+
+        registerLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          loginPanel.style.display = "none";
+          registerPanel.style.display = "block";
+        });
+
+        // Show Login Panel
+        loginLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          registerPanel.style.display = "none";
+          loginPanel.style.display = "block";
+        });
+
+        // Close panels by clicking on overlay
+        overlay.addEventListener("click", () => {
+          loginPanel.style.display = "none";
+          registerPanel.style.display = "none";
+          overlay.style.display = "none";
+        });
+
+        // Simulated Login Form Submission
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+          e.preventDefault(); // Prevent the default form submission
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const rememberMe = document.getElementById("rememberMe").checked;
+      
+          console.log("Login button clicked"); // Check if event triggers
+      
+          // Check if username and password are filled
+          if (username && password) {
+            localStorage.setItem("loggedIn", "true");
+            if (rememberMe) localStorage.setItem("rememberMe", "true");
+      
+            alert("Career Services: Login Successful!"); // Confirm login success
+            location.href = "index.html"; // Redirect to homepage after login
+          } else {
+            alert("Please fill in all fields."); // Alert if fields are empty
+          }
+        });
+      
+        // Registration Form Submission
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+          e.preventDefault(); // Prevent form submission
+
+          // Get the input values
+          const username = document.getElementById("regUsername").value;
+          const email = document.getElementById("regEmail").value;
+          const password = document.getElementById("regPassword").value;
+          const confirmPassword = document.getElementById("regConfirmPassword").value;
+
+          // Debugging: Check values in the console
+          console.log("Username:", username);
+          console.log("Email:", email);
+          console.log("Password:", password);
+          console.log("Confirm Password:", confirmPassword);
+
+          // Check if passwords match
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return; // Stop the process if passwords don't match
+          }
+
+          // If all validation passes, proceed with registration logic
+          const userInfo = { username, email, password }; // Store user data
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+          // Inform the user about the successful registration
+          alert("Registration Successful! Please log in.");
+
+          // Switch to the login panel
+          registerPanel.style.display = "none"; // Make sure this refers to the actual panel ID
+          loginPanel.style.display = "block"; // Ensure this is correct too
+        });
+      
+        // Learn More button to show login panel
+        learnMoreBtn.addEventListener("click", function(event) {
+          event.preventDefault();
+          loginPanel.style.display = "block";
+          overlay.style.display = "block";
+          nav.classList.add("blurred");
+        });
+      
+        // Function to check login status
+        function checkLoginStatus() {
+          const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+          if (isLoggedIn) {
+            document.getElementById("userIcon").classList.remove("hidden");
+            learnMoreBtn.style.display = "none";
+          } else {
+            document.getElementById("userIcon").classList.add("hidden");
+            learnMoreBtn.style.display = "inline-block";
+          }
+        }
+      
+        // Logout function
+        function logout() {
+          localStorage.removeItem("loggedIn");
+          localStorage.removeItem("rememberMe");
+          alert("Career Services: You have been logged out!");
+          document.getElementById("userIcon").classList.add("hidden");
+          location.href = "index.html"; // Or login page
+        }
+      
+        // Call this function when the page loads to check login status
+        checkLoginStatus();
+      </script>
+  </body>
+</html>

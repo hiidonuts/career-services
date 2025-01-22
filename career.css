@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body
+{
+  background-image: url("/img/career-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center 185px;
+  margin-top: 100px;
+  overflow: auto;
+}
+
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+header, nav
+{
+  text-align: center;
+  background: transparent;
+  color: white;
+  padding: 1rem 0;
+}
+
+nav 
+{
+  position: absolute;
+  top: 0;
+  height: 1px;
+  left: 0;
+  width: 100%;
+  background:white;
+  z-index: 100;
+}
+
+nav ul 
+{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  border-spacing: 0cm;
+  margin-top: 65px;
+}
+
+nav ul li { margin: 0 30px; }
+
+nav ul li a 
+{
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav ul li a:hover
+{
+    text-decoration: underline;
+    color: #373833;
+}
+
+nav ul li a.active {
+    text-decoration: underline;
+    color: #373833;
+}
+
+.user-icon {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 4px;
+    font-size: 1.4rem; /* Adjust the icon size */
+}
+
+.user-icon i {
+    color: #333; /* Icon color */
+    transition: color 0.3s ease;
+}
+
+section 
+{
+  padding: 20px;
+  width: 100%;
+  height: auto;
+}
+
+section h1
+{
+  text-align: center; 
+  font-size: 110px; 
+  color: #fff;
+  margin-top: 130px;
+}
+
+section p.desc
+{
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff; 
+  margin: 20px 90px;
+  text-align: center;
+}
+
+.navigation 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+  
+.navigation button 
+{
+    background-color: #ada0a0;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+  
+.navigation h2 
+{
+    margin: 0 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    word-spacing: 2px;
+}
+
+.scrollable-container 
+{
+    width: 60%; 
+    height: 500px;
+    margin: 20px auto;
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+}
+
+.scrollable-container h2
+{
+    font-size: 1.7rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.scrollable-container p 
+{
+    color: #000000;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.scrollable-container::-webkit-scrollbar { width: 7px; }
+
+.scrollable-container::-webkit-scrollbar-track { background-color: #f1f1f1; }
+
+.scrollable-container::-webkit-scrollbar-thumb 
+{
+    background-color: #705f5f;
+    border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover { background-color: #555; }
+
+.forum-post 
+{
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 40px;
+    border-bottom: 1px solid #ecf0f1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.forum-post:hover { transform: translateX(10px); }
+
+.profile-pic 
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 3px solid #e4c8c8;
+}
+
+.profile-pic img 
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content { flex: 1; }
+
+.name 
+{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.name span 
+{ 
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.advice 
+{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #7f8c8d;
+}
+
+.advice::before 
+{
+    content: "📌 ";
+    font-size: 1.2rem;
+    color: #f76c6c;
+}
+
+.career-guide {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.guide-item 
+{
+    display: flex;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 0 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.guide-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.guide-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.guide-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.guide-content p 
+{
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #555555;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.guide-item:hover {
+    background-color: #f6f4f4;
+    transition: background-color 0.3s;
+}
+
+.resources-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Resource Cards */
+.resource-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Resource Card Title */
+.resource-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Resource Card Description */
+.scrollable-container .resource-card p 
+{
+    text-align: left !important;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Resource Link Styling */
+.resource-link {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #543d3d;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.resource-link:hover {
+    color: #7f7373;
+    text-decoration: underline;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .resources-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+::-webkit-scrollbar { width: 8px; }
+
+::-webkit-scrollbar-track { background-color: #f1f1f1; }
+
+::-webkit-scrollbar-thumb 
+{
+    background-color: #705f5f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { background-color: #555; }

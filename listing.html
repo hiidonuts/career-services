@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+    <title>Career Services | Listings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        header, nav
+        {
+        text-align: center;
+        background: transparent;
+        color: white;
+        padding: 1rem 0;
+        }
+
+        nav 
+        {
+            position: absolute;
+            top: 0;
+            height: 1px;
+            left: 0;
+            width: 100%;
+            background:white;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul 
+        {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            border-spacing: 0;
+            margin-top: 65px;
+        }
+
+        nav ul li { margin: 0 30px; }
+
+        nav ul li a 
+        {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav ul li a:hover
+        {
+            text-decoration: underline;
+            color: #373833;
+        }
+
+        nav ul li a.active {
+            text-decoration: underline;
+            color: #373833;
+        }
+
+        .user-icon {
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 50px;
+            margin-top: 4px;
+            font-size: 1.4rem; /* Adjust the icon size */
+        }
+
+        .user-icon i {
+            color: #333; /* Icon color */
+            transition: color 0.3s ease;
+        }
+
+        #header {
+          background-image: url(/img/listing-bg.jpg);
+          background-repeat: no-repeat;
+          background-size: cover; /* Makes the image cover the full width */
+          background-position: center; /* Centers the image */
+          padding: 100px;
+          width: 100%;
+          margin-top: 180px;
+          height: 270px; /* Adjust the height as needed */
+      }
+
+        .search-bar {
+            margin: 50px auto;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .search-bar input {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+
+        .listings {
+            flex: 1;
+            padding: 20px;
+        }
+
+
+        .details {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-left: 2px solid #ccc;
+            display: none; /* Hidden by default */
+        }
+
+
+        .listing {
+            border-radius: 25px;
+            border: 2px solid rgb(66, 66, 78);
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+
+        .listing:hover {
+            background-color: #e3e3e3;
+        }
+
+
+        .details h2 {
+            margin-bottom: 10px;
+        }
+
+
+        .details p {
+            margin-bottom: 5px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+
+        ::-webkit-scrollbar-track { background-color: #f1f1f1; }
+
+        ::-webkit-scrollbar-thumb 
+        {
+            background-color: #705f5f;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover { background-color: #555; }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listing.html">Listings</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="community.html">Community</a></li>
+                <div id="userIcon" class="user-icon hidden" onclick="logout()">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div id="header">
+      <h1 style="font-size: 100px; text-align: center; color: white; margin-top: -20px;">LISTINGS</h1>
+   </div>
+ 
+ 
+  <!-- Search Bar Section -->
+  <section class="search-bar">
+      <input
+          type="text"
+          id="searchInput"
+          onkeyup="filterListings()"
+          placeholder="Search for job titles, companies, or locations..."
+          style="border: 2px solid #ccc; outline: none; transition: border-color 0.3s;"
+          onfocus="this.style.borderColor='#000000';"
+          onblur="this.style.borderColor='#ccc';"
+      >
+  </section>
+ 
+  <!-- Job Listings and Details Section -->
+  <div class="container">
+      <!-- Listings Section -->
+      <section class="listings">
+          <h2 style="text-align: center; margin-bottom: 50px; font-family: Arial, sans-serif;">Available Listings</h2>
+ 
+          <div class="listing" data-title="Executive Credit Administration" data-company="Gamuda Berhad" data-location="Shah Alam, Selangor" data-description="Manage credit administration tasks for the company.">
+              <h3 style="margin-bottom: 10px;">Executive Credit Administration</h3>
+              <p><strong>Company:</strong> Gamuda Berhad</p>
+              <p><strong>Location:</strong> Shah Alam, Selangor</p>
+          </div>
+ 
+          <div class="listing" data-title="CIMB Headstart Internship Programme" data-company="CIMB Bank Berhad" data-location="Kuala Lumpur" data-description="Join the CIMB internship programme to gain hands-on experience.">
+              <h3 style="margin-bottom: 10px;">CIMB Headstart Internship Programme</h3>
+              <p><strong>Company:</strong> CIMB Bank Berhad</p>
+              <p><strong>Location:</strong> Kuala Lumpur</p>
+          </div>
+ 
+          <div class="listing" data-title="IT Helpdesk and Admin" data-company="E-Tech IT Sdn Bhd" data-location="Shah Alam, Selangor" data-description="Provide IT support and manage administrative tasks.">
+              <h3 style="margin-bottom: 10px;">IT Helpdesk and Admin</h3>
+              <p><strong>Company:</strong> E-Tech IT Sdn Bhd</p>
+              <p><strong>Location:</strong> Shah Alam, Selangor</p>
+          </div>
+
+          <div class="listing" data-title="HR Executive" data-company="Infinity Data Tech Sdn Bhd" data-location="KL Eco City, Kuala Lumpur" data-description="Maintain a productive work environment by overseeing office upkeep. ">
+            <h3 style="margin-bottom: 10px;">HR Executive</h3>
+            <p><strong>Company:</strong> Infinity Data Tech Sdn Bhd</p>
+            <p><strong>Location:</strong> KL Eco City, Kuala Lumpur</p>
+        </div>
+
+
+          <div class="listing" data-title="E-commerce Customer Support Analyst" data-company="Synergy House Furniture Sdn Bhd" data-location="Setia Alam, Selangor" data-description="">
+            <h3 style="margin-bottom: 10px;">E-commerce Customer Support Analyst</h3>
+            <p><strong>Company:</strong>Synergy House Furniture Sdn Bhd</p>
+            <p><strong>Location:</strong>Setia Alam, Selangor</p>
+         </div>
+
+
+        <div class="listing" data-title="Executive, Technology Assurance Auditor" data-company="Malaysian Communications and Multimedia Commision" data-location="Cyberjaya, Selangor" data-description="">
+          <h3 style="margin-bottom: 10px;">Executive, Technology Assurance Auditor</h3>
+          <p><strong>Company:</strong>Malaysian Communications and Multimedia Commision</p>
+          <p><strong>Location:</strong>Cyberjaya, Selangor</p>
+        </div>
+
+
+        <div class="listing" data-title="Executive, Technology Assurance Auditor" data-company="Malaysian Communications and Multimedia Commision" data-location="Cyberjaya, Selangor" data-description="">
+          <h3 style="margin-bottom: 10px;">Executive, Technology Assurance Auditor</h3>
+          <p><strong>Company:</strong>Malaysian Communications and Multimedia Commision</p>
+          <p><strong>Location:</strong>Cyberjaya, Selangor</p>
+        </div>
+      </section>
+ 
+      <!-- Details Section -->
+      <section class="details" id="detailsBox">
+          <h2 style="font-family: Arial, sans-serif; border-bottom: 2px solid #ccc; padding-bottom: 10px;">Job Details</h2>
+          <p style="margin-top: 20px;"><strong>Job Title:</strong> <span id="detailsTitle">Select a job to view details</span></p>
+          <p><strong>Company:</strong> <span id="detailsCompany"></span></p>
+          <p><strong>Location:</strong> <span id="detailsLocation"></span></p>
+          <p><strong>Description:</strong> <span id="detailsDescription"></span></p>
+      </section>
+  </div>
+ 
+    <script>
+        // Place this script on every page except the homepage
+        if (!localStorage.getItem("loggedIn")) {
+            alert("You must log in to access this page!");
+            location.href = "index.html"; // Redirect to homepage
+        }
+
+        const navLinks = document.querySelectorAll('nav ul li a');
+    
+        navLinks.forEach(link => {
+            // Check if the link's href matches the current page's URL
+            if (window.location.href.includes(link.href)) {
+                link.classList.add('active'); // Add 'active' class if the link is on the current page
+            }
+        });
+
+        const listings = document.querySelectorAll('.listing');
+        const detailsBox = document.getElementById('detailsBox');
+        const detailsTitle = detailsBox.querySelector('h2');
+        const detailsCompany = document.getElementById('detailsCompany');
+        const detailsLocation = document.getElementById('detailsLocation');
+        const detailsDescription = document.getElementById('detailsDescription');
+
+
+        listings.forEach(listing => {
+            listing.addEventListener('click', () => {
+                const title = listing.dataset.title;
+                const company = listing.dataset.company;
+                const location = listing.dataset.location;
+                const description = listing.dataset.description;
+
+
+                detailsTitle.textContent = title;
+                detailsCompany.textContent = company;
+                detailsLocation.textContent = location;
+                detailsDescription.textContent = description;
+
+
+                detailsBox.style.display = 'block';
+            });
+        });
+
+
+        function filterListings() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            listings.forEach(listing => {
+                const title = listing.dataset.title.toLowerCase();
+                const company = listing.dataset.company.toLowerCase();
+                const location = listing.dataset.location.toLowerCase();
+
+
+                if (title.includes(input) || company.includes(input) || location.includes(input)) {
+                    listing.style.display = "block";
+                } else {
+                    listing.style.display = "none";
+                }
+            });
+        }
+
+        function logout() {
+          localStorage.removeItem("loggedIn");
+          localStorage.removeItem("rememberMe");
+          alert("Career Services: You have been logged out!");
+          document.getElementById("userIcon").classList.add("hidden");
+          location.href = "index.html"; // Or login page
+        }
+    </script>
+</body>
+</html>
