@@ -84,7 +84,7 @@
 
 body
 {
-  background-image: url("resume-bg.jpg");
+  background-image: url("img/resume-bg.jpg");
   background-repeat: no-repeat;
   background-position: calc(105% - 930px) top;
   margin-top: 100px;
