@@ -3,7 +3,7 @@
 
 body
 {
-  background-image: url("../../img/homepage-bg.jpg");
+  background-image: url("../img/homepage-bg.jpg");
   background-repeat: no-repeat;
   background-position: calc(100% - 90px) top;
   margin-top: 100px;
