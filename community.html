@@ -540,7 +540,7 @@
       async function loadThread(threadId) {
         currentThreadId = threadId;
     
-        const response = await fetch('threads.json');
+        const response = await fetch('assets/threads.json');
         const data = await response.json();
         const thread = data.threads.find(t => t.id === threadId);
     
