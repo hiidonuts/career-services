@@ -6,6 +6,7 @@
 This project aims to provide career-related services for university students or fresh graduates, providing them with resources to guide them in their future career path.
 
 
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -24,3 +25,10 @@ This project aims to provide career-related services for university students or 
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Venice - [@venicevkx](https://www.instagram.com/venicevkx/) - venicevkx@gmail.com
