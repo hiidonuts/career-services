@@ -25,6 +25,7 @@ header, nav
   background: transparent;
   color: white;
   padding: 1rem 0;
+  z-index: -10;
 }
 
 nav 
@@ -35,7 +36,7 @@ nav
   left: 0;
   width: 100%;
   background:white;
-  z-index: 100;
+  z-index: -10;
 }
 
 nav ul 
@@ -45,6 +46,7 @@ nav ul
   list-style: none;
   border-spacing: 0cm;
   margin-top: 65px;
+  z-index: -10;
 }
 
 nav ul li { margin: 0 30px; }
@@ -119,7 +121,7 @@ section p
 
 section button
 {
-  margin: 10px 90px;
+  margin: 0 90px;
   background-color: #b7b7a4;
   color: white;
   border: none;
@@ -127,6 +129,7 @@ section button
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
+  z-index: 10;
 }
 
 section button:hover { background-color: #e5e5e5;}
@@ -227,4 +230,5 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+
 
